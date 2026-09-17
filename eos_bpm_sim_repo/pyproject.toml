@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eos-bpm-sim"
+version = "0.1.0"
+description = "Electro-optic sampling BPM simulation with four-crystal geometry"
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "numpy>=1.24,<3",
+    "scipy>=1.10,<2",
+    "matplotlib>=3.7,<4",
+]
+
+[project.optional-dependencies]
+notebook = [
+    "ipykernel>=6.25,<8",
+    "jupyterlab>=4,<5",
+]
+analysis = [
+    "numba>=0.59,<1",
+    "imageio>=2.31,<3",
+    "sympy>=1.11,<2",
+]
+dev = [
+    "pytest>=7,<9",
+    "ruff>=0.6,<1",
+    "ipykernel>=6.25,<8",
+    "jupyterlab>=4,<5",
+    "numba>=0.59,<1",
+    "imageio>=2.31,<3",
+    "sympy>=1.11,<2",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
